@@ -2,6 +2,10 @@
 
 import { useState } from 'react';
 
+// import dotenv from 'dotenv';
+
+// dotenv.config();
+
 export default function ContactForm() {
   const [Data, setData] = useState({
     name: '',
@@ -12,10 +16,11 @@ export default function ContactForm() {
 
 
   const handleSubmit = async (e) => {
+    console.log(process.env.NEXT_PUBLIC_API_URL)
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:5000/api/contact", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
