@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning={true}>
        <body
         className={`${outfit.className} ${ovo.className} antialiased bg-cover bg-center bg-no-repeat `}
-        style={{ backgroundImage:"url('/06.jpg')",
+        style={{ backgroundImage:"url('/bg.jpg')",
           backgroundAttachment: "fixed",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

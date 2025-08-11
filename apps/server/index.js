@@ -4,6 +4,7 @@ const cors=require("cors")
 const db=require("./db")
 
 const app=express();
+const PORT = process.env.PORT || 5000;
 
 app.use(cors({origin:'*'}));
 app.use(express.json());
@@ -31,6 +32,6 @@ app.get("/", (req, res) =>{
 })
 
 
-app.listen(5000,()=>{
-  console.log("port running on http://localhost:5000")
+app.listen(PORT,()=>{
+  console.log(`port running on port ${PORT}`)
 });
