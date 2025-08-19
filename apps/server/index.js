@@ -9,6 +9,8 @@ const PORT = process.env.PORT || 5000;
 app.use(cors({ origin: "*" }));
 app.use(express.json());
 
+// CONTACT FORM
+
 app.post("/api/contact", (req, res) => {
   const { name, email, message } = req.body;
   const query = `INSERT INTO contacts(name, email, message) VALUES (?, ?, ?)`;
@@ -19,10 +21,13 @@ app.post("/api/contact", (req, res) => {
   });
 });
 
+
+// CONTACT INFO
+
 const Links = JSON.stringify([
-  "http://www.instagram.com",
-  "http://www.linkedin.com",
-  "https://github.com/ibtisaaamr0"
+  {url:"http://www.instagram.com",icon:"/insta.png"},
+  {url:"http://www.linkedin.com", icon:"/linkedin.png"},
+  {url:"https://github.com/ibtisaaamr0",icon:"/github.png"}
 ]);
 // db.run(`INSERT INTO contact_info(email,links,img) VALUES(?,?,?)`,
 
@@ -38,10 +43,19 @@ const Links = JSON.stringify([
 //   }
 // )
 
-db.run(`UPDATE contact_info SET email=?`,["Ibtisaaamr00@gmail.com"],(err)=>{
+// db.run(`UPDATE contact_info SET email=?`,["Ibtisaaamr00@gmail.com"],(err)=>{
+//   if(err) throw new Error(err.message,"error")
+//     console.log("email ")
+// })
+
+db.run(`UPDATE contact_info SET Links=?`,[Links],(err)=>{
   if(err) throw new Error(err.message,"error")
-    console.log("email ")
+    console.log("Links ")
 })
+
+
+
+
 // Fetch all contact info
 app.get("/api/contact_info", (req, res) => {
   db.all("SELECT * FROM contact_info", [], (err, rows) => {
@@ -60,6 +74,8 @@ app.get("/api/contact_info", (req, res) => {
   });
 });
 
+
+// USER
 
 
 db.get("SELECT * FROM user", (err, row) => {
@@ -126,6 +142,9 @@ app.get("/api/user", (req, res) => {
     });
   });
 
+
+
+// PROJECTS  
 
 const defaultProjects = [
   {
@@ -194,6 +213,8 @@ app.get("/api/projects", (req, res) => {
   });
 });
 
+
+// CHECK
 
 app.get("/", (req, res) => {
   res.status(200).json({ status: "Success" });

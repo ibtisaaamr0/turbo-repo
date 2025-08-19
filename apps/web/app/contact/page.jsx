@@ -15,10 +15,8 @@ export default function Contact() {
 
         if (!data || data.length === 0) return;
 
-        // Take first row (assuming only one contact info row)
         const contactData = data[0];
 
-        // Ensure links is always an array
         const links = Array.isArray(contactData.links) ? contactData.links : [];
 
         setContact({ ...contactData, links });
@@ -36,7 +34,6 @@ export default function Contact() {
     <div className="min-h-screen flex justify-center m-20 animate-fade">
       <div className='flex flex-col gap-20 justify-center items-center lg:flex lg:flex-row lg:text-2xl md:text-xl'>
 
-        {/* Profile + info */}
         <div className="flex flex-col lg:flex items-center justify-between gap-10 w-full">
           <div className="w-1/2 flex justify-center">
             {contact.img && (
@@ -59,16 +56,10 @@ export default function Contact() {
 
             <div className='flex flex-row gap-x-3'>
               {contact.links.map((link, index) => (
-                <a key={index} href={link} target="_blank" rel="noopener noreferrer">
+                <a key={index} href={link.url} target="_blank" rel="noopener noreferrer">
                   <Image
-                    src={
-                      index === 0
-                        ? "/insta.png"
-                        : index === 1
-                        ? "/linkedin.png"
-                        : "/github.png"
-                    }
-                    alt=""
+                    src={link.icon}
+                    alt="social icon"
                     width={30}
                     height={30}
                     className="hover:animate-hover-on"
@@ -78,8 +69,6 @@ export default function Contact() {
             </div>
           </div>
         </div>
-
-        {/* Contact Form */}
         <div>
           <ContactForm />
         </div>
