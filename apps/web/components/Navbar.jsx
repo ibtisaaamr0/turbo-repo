@@ -60,12 +60,12 @@ export default function Navbar() {
         </div>
 
 
-        <div><Link href={"/about"}>
-          <Image src={assets.profile_img}
+        <div><Link href={"/adminproject"}>
+          <Image src={"/profile-img.png"}
             alt=''
             width={80}
             height={20}
-            className='cursor-pointer lg:flex rounded-full lg:w-17 hidden'
+            className='cursor-pointer lg:flex rounded-full lg:w-19 hidden'
           />
 
         </Link></div>
