@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+*{
+  font-family: Outfit;
+}
+@theme {
+  --animate-fade: fade 1s ease-in-out ;
+  @keyframes fade {
+    0% {
+      opacity: 0;
+      transform:scale(0)
+    }
+    100% {
+       opacity:1;
+      transform:scale(1)
+    }
+  }
+
+    --animate-dropup: dropup 0.3s ease-out;
+  @keyframes dropup {
+    0% {
+      opacity: 0;
+      transform: translateY(900px) scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY() scale(1);
+    }
+  }
+
+
+  --animate-hover-on : hover-on 1s ease-in-out infinite;
+  @keyframes hover-on{
+    0%,100%{
+      opacity:0.8;
+      transform: translateY(0)
+    }
+    50%{
+      opacity: 1;
+      transform:translateY(20px)
+    }
+  }
+}    
