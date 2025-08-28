@@ -48,10 +48,10 @@ const Links = JSON.stringify([
 //     console.log("email ")
 // })
 
-db.run(`UPDATE contact_info SET Links=?`,[Links],(err)=>{
-  if(err) throw new Error(err.message,"error")
-    console.log("Links ")
-})
+// db.run(`UPDATE contact_info SET Links=?`,[Links],(err)=>{
+//   if(err) throw new Error(err.message,"error")
+//     console.log("Links ")
+// })
 
 
 
@@ -78,26 +78,26 @@ app.get("/api/contact_info", (req, res) => {
 // USER
 
 
-db.get("SELECT * FROM user", (err, row) => {
-  if (err) {
-    console.error("Database error:", err);
-  } else if (!row) {
-    db.run(
-      `INSERT INTO user(user, bio, profile_pic, Skill_pic,about) VALUES (?, ?, ?,?, ?)`,
-      [
-        "Ibtisam",
-        "A passionate developer building amazing things.",
-        "/user-image.png",
-        "/Work-4.png",
-        "I’m a passionate developer with a strong interest in building modern web applications using the latest technologies. I love turning ideas into reality with code."
-      ],
-      (err) => {
-        if (err) console.error("Failed to insert default user:", err);
-        else console.log("Default user inserted into database.");
-      }
-    );
-  }
-});
+// db.get("SELECT * FROM user", (err, row) => {
+//   if (err) {
+//     console.error("Database error:", err);
+//   } else if (!row) {
+//     db.run(
+//       `INSERT INTO user(user, bio, profile_pic, Skill_pic,about) VALUES (?, ?, ?,?, ?)`,
+//       [
+//         "Ibtisam",
+//         "A passionate developer building amazing things.",
+//         "/user-image.png",
+//         "/Work-4.png",
+//         "I’m a passionate developer with a strong interest in building modern web applications using the latest technologies. I love turning ideas into reality with code."
+//       ],
+//       (err) => {
+//         if (err) console.error("Failed to insert default user:", err);
+//         else console.log("Default user inserted into database.");
+//       }
+//     );
+//   }
+// });
 
 
 // db.run(`UPDATE user SET bio=?`, ["A passionate developer building amazing things."], (err)=>
@@ -146,20 +146,20 @@ app.get("/api/user", (req, res) => {
 
 // PROJECTS  
 
-const defaultProjects = [
-  {
-    Pname: "Burberry Clone",
-    Pdes: "Basic React + CSS",
-    Pinfo: "A simple responsive Burberry homepage clone showcasing modern web layout and design using only React and plain CSS.",
-    Pimg: JSON.stringify(["/p1.png", "/p2.png"]) 
-  },
-  {
-    Pname: "Car Rental System",
-    Pdes: "HTML + CSS + PHP",
-    Pinfo: "A simple Web page only used for a project for Database to enter cars in database and fetch them accordingly.",
-    Pimg: "/work2.png"
-  }
-];
+// const defaultProjects = [
+  // {
+  //   Pname: "Burberry Clone",
+  //   Pdes: "Basic React + CSS",
+  //   Pinfo: "A simple responsive Burberry homepage clone showcasing modern web layout and design using only React and plain CSS.",
+  //   Pimg: JSON.stringify(["/p1.png", "/p2.png"]) 
+  // },
+//   {
+//     Pname: "Car Rental System",
+//     Pdes: "HTML + CSS + PHP",
+//     Pinfo: "A simple Web page only used for a project for Database to enter cars in database and fetch them accordingly.",
+//     Pimg: "/work2.png"
+//   }
+// ];
 
 // // Insert default projects
 // defaultProjects.forEach(project => {
@@ -174,7 +174,7 @@ const defaultProjects = [
 // });
 
 
-// db.run(`DELETE FROM projects where id=?`, [4], (err) => {
+// db.run(`DELETE FROM projects where id=?`, [2], (err) => {
 //   if (err) console.error(err);
 //   else {
 //     console.log(" projects deleted successfully.");

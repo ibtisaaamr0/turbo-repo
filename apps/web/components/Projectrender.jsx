@@ -12,11 +12,11 @@ export default function ProjectsRender() {
   useEffect(() => {
     async function fetchProjects() {
       try {
-        const res = await fetch("http://localhost:5000/api/projects", { cache: "no-store" });
-        const data = await res.json();
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+        const res = await fetch(`${apiUrl}/api/projects`, { cache: "no-store" }); const data = await res.json();
         setProjects(data);
       } catch (error) {
-        console.error("Error fetching data:", error);        
+        console.error("Error fetching data:", error);
       }
     }
 
@@ -26,7 +26,7 @@ export default function ProjectsRender() {
   return (
     <div className="flex flex-col gap-20 items-center justify-center px-10 py-20 bg-transparent pb-50 md:mt-10 animate-fade">
       {projects.map((project, index) => {
-        const Icon = icons[index] 
+        const Icon = icons[index]
 
         return (
           <div

@@ -5,7 +5,11 @@ import Skill from "../components/Skill";
 
 async function getUserData() {
   try {
-    const res = await fetch("http://localhost:5000/api/user", { cache: "no-store" });
+
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL_SERVER;
+    const res = await fetch(`${apiUrl}/api/user`, { cache: "no-store" });
+    console.log(res);
+    if (res.ok) console.log("User data fetched successfully");
     if (!res.ok) throw new Error("Failed to fetch user data");
 
     const data = await res.json();

@@ -10,14 +10,22 @@ export default function Contact() {
   useEffect(() => {
     async function fetchContact() {
       try {
-        const res = await fetch("http://localhost:5000/api/contact_info");
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+        const res = await fetch(`${apiUrl}/api/contact_info`, { cache: "no-store" });
         const data = await res.json();
 
         if (!data || data.length === 0) return;
 
-        const contactData = data[0];
+        const contactData = data && data.length > 0 ? data[0] : null;
+
+        if (!contactData) {
+          console.error("No contact data found");
+          return;
+        }
 
         const links = Array.isArray(contactData.links) ? contactData.links : [];
+        setContact({ ...contactData, links });
+
 
         setContact({ ...contactData, links });
       } catch (err) {

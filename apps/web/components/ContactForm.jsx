@@ -12,7 +12,8 @@ export default function ContactForm() {
 
 
   const handleSubmit = async (e) => {
-    console.log(process.env.NEXT_PUBLIC_API_URL)
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+        const res = await fetch(`${apiUrl}/api/contact`, { cache: "no-store" });
     e.preventDefault();
 
     try {

@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  server:
+    build:
+      context: ./apps/server
+    container_name: server
+    ports:
+      - "5000:5000"
+    networks:
+      - app-network
+    environment:
+      - PORT=5000
+
+  web:
+    build:
+      context: ./apps/web
+    container_name: web
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
+    networks:
+      - app-network
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:5000
+
+networks:
+  app-network:
+    driver: bridge
