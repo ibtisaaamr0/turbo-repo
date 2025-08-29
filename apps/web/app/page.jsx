@@ -32,9 +32,9 @@ export default async function Home() {
   const user = await getUserData();
 
   return (
-    <main className="min-h-xs flex flex-col justify-center items-center bg-transparent px-10 py-10 gap-15 mb-40 animate-fade">
+    <main className="min-h-xs flex flex-col justify-center items-center bg-transparent px-10 py-10 gap-15 mb-40 ">
 
-      <div className="rounded-full bg-gray-300 md:rounded-xl flex flex-col-reverse lg:gap-20 gap-10 md:flex-row items-center justify-between max-w-xs xs:w-[95%] sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-4xl mt-5 shadow-2xl p-3.5 lg:p-14 md:p-6 md:mt-30 md:py-20 md:px-5">
+      <div className="rounded-full bg-gray-300 md:rounded-xl flex flex-col-reverse lg:gap-20 gap-10 md:flex-row animate-fade items-center justify-between max-w-xs xs:w-[95%] sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-4xl mt-5 shadow-2xl p-3.5 lg:p-14 md:p-6 md:mt-30 md:py-20 md:px-5">
         <div className="text-left">
           <h1 className="text-xl md:text-2xl xl:text-4xl font-bold text-gray-900 typing-animation">
             Hey, I’m {user.user}
@@ -62,7 +62,7 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="rounded-full md:rounded-xl flex flex-col-reverse gap-5 lg:flex-col-reverse items-center justify-between max-w-xs xs:w-[95%] sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-4xl mt-5 shadow-2xl p-5 xl:p-15 bg-gray-300 md:mt-30">
+      <div className="rounded-full md:rounded-xl flex flex-col-reverse gap-5 lg:flex-col-reverse items-center justify-between max-w-xs xs:w-[95%] sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-4xl mt-5 shadow-2xl p-5 xl:p-15 bg-gray-300 md:mt-30 animate-fade">
         <Skill />
         <div>
           <Image
