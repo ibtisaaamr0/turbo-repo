@@ -2,6 +2,7 @@ import { Outfit,Ovo} from "next/font/google";
 import "./globals.css";
 import Navbar from "./../components/Navbar";
 import Footer from "./../components/Footer";
+import ChatWidget from "./../components/Chat";
 
 const outfit = Outfit({
   subsets: ["latin"],weight: ["400" ,"500","600", "700"],
@@ -35,6 +36,8 @@ export default function RootLayout({ children }) {
 
         {children}
         </main>
+        <ChatWidget />
+
         <Footer/>
       </body>
     </html>

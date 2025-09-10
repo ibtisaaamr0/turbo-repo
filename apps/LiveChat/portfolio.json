@@ -1,0 +1,31 @@
+{
+  "name": "Ibtisam Rashid",
+  "title": "BSCS Student at University of Lahore",
+  "skills": ["JavaScript", "React", "Next.js", "Node.js", "Python", "SQL"],
+  "about":"I’m a passionate developer with a strong interest in building modern web applications using the latest technologies. I love turning ideas into reality with code.",
+  "experience": [
+    {
+      "role": "Frontend Developer Intern",
+      "company": "Fantech labs",
+      "year": "2025"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Burberry Clone",
+      "description": "A simple responsive Burberry homepage clone showcasing modern web layout and design using only React and plain CSS.."
+    },
+    {
+      "name": "Car Rental System",
+      "description": "A simple Web page only used for a project for Database to enter cars in databse and fetch them accordingly."
+    },
+    {
+        "link": "https://portfolio-2-nine-chi.vercel.app/projects"
+    }
+  ],
+  "contact": {
+    "email": "ibtisamr0@gmail.com",
+    "linkedin": "https://linkedin.com/in/ibtisam",
+    "github": "https://github.com/ibtisamrashid"
+  }
+}

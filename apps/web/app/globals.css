@@ -4,7 +4,8 @@
   font-family: Outfit;
 }
 @theme {
-  --animate-fade: fade 1s ease-in-out ;
+  --animate-fade: fade 0.9s ease-in-out 0.3s both;
+  
   @keyframes fade {
     0% {
       opacity: 0;
@@ -14,9 +15,11 @@
        opacity:1;
       transform:scale(1)
     }
+    
   }
+  
 
-    --animate-dropup: dropup 0.3s ease-out;
+    --animate-dropup: dropup 0.8s ease-out;
   @keyframes dropup {
     0% {
       opacity: 0;

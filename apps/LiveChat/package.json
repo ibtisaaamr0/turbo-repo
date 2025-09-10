@@ -1,0 +1,14 @@
+{
+  "name": "livechat",
+  "version": "1.0.0",
+  "main": "server.js",
+
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "sqlite3": "^5.1.7",
+    "ws": "^8.17.0"
+  }
+}

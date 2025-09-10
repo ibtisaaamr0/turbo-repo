@@ -5,8 +5,8 @@ import ProgressBar from '@ramonak/react-progress-bar';
 export default function Skill() {
   return (
     <div className="text-left flex flex-col p-5 gap-5">
-      <h1 className="text-xl font-extrabold text-gray-900 text-left">Skills</h1>
-      <ul className="flex flex-col gap-2 font-bold italic list-disc">
+      <h1 className="text-xl font-extrabold text-gray-300 text-left">Skills</h1>
+      <ul className="flex flex-col gap-2 font-bold italic list-disc text-gray-200">
         <li className="w-full sm:w-[300px] md:w-[400px] lg:w-[500px]">
           Next.js
           <ProgressBar

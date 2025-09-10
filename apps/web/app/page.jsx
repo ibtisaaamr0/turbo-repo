@@ -1,7 +1,12 @@
+export const dynamic = "force-dynamic";
+
+
 import { FcAbout } from "react-icons/fc";
 import Image from "next/image";
 import Link from "next/link";
 import Skill from "../components/Skill";
+
+
 
 async function getUserData() {
   try {
@@ -14,13 +19,6 @@ async function getUserData() {
     return data;
   } catch (err) {
     console.error("Fetch error:", err);
-    return {
-      user: "Ibtisam",
-      bio: "A passionate developer building amazing things.",
-      profile_pic: "/user-image.png",
-      Skill_pic: "/Work-4.png",
-      about: "I’m a passionate developer with a strong interest in building modern web applications using the latest technologies. I love turning ideas into reality with code."
-    };
   }
 }
 
@@ -28,14 +26,36 @@ export default async function Home() {
   const user = await getUserData();
 
   return (
-    <main className="min-h-xs flex flex-col justify-center items-center bg-transparent px-10 py-10 gap-15 mb-40 animate-fade">
+    <main className="flex flex-col items-center bg-transparent gap-15 mb-40 ">
+      {/* Fullscreen video hero */}
+      <section className="relative w-screen h-screen flex items-center justify-center overflow-hidden m-0 p-0">
+        {/* Background video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover animate-dropup"
+        >
+          <source src="/bg.mp4" type="video/mp4" />
+        </video>
 
-      <div className="rounded-full bg-gray-300 md:rounded-xl flex flex-col-reverse lg:gap-20 gap-10 md:flex-row items-center justify-between max-w-xs xs:w-[95%] sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-4xl mt-5 shadow-2xl p-3.5 lg:p-14 md:p-6 md:mt-30 md:py-20 md:px-5">
-        <div className="text-left">
-          <h1 className="text-xl md:text-2xl xl:text-4xl font-bold text-gray-900 typing-animation">
+        {/* Overlay */}
+        <div className="absolute top-0 left-0 w-full h-full bg-black/40"></div>
+
+        {/* Text content */}
+        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white z-10 text-center px-4 drop-shadow-lg italic">
+          Welcome to My Portfolio
+        </h1>
+      </section>
+
+      {/* Profile Section */}
+      <div className="rounded-full text-white bg-linear-to-b from-gray-900 to-gray-300 md:rounded-xl flex flex-col-reverse lg:gap-20 gap-10 md:flex-row items-center justify-between max-w-xs xs:w-[95%] sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-4xl mt-5 shadow-2xl p-3.5 lg:p-14 md:p-6 md:mt-30 md:py-20 md:px-5 animate-fade">
+        <div className="text-left text-gray-200">
+          <h1 className="text-xl md:text-2xl xl:text-4xl font-bold text-gray-300 typing-animation">
             Hey, I’m {user.user}
           </h1>
-          <p className="mt-7 mb-7 text-base lg:text-xl text-gray-600">{user.bio}</p>
+          <p className="mt-7 mb-7 text-base lg:text-xl text-gray-300">{user.bio}</p>
 
           <div className="flex justify-center mb-7 lg:flex gap-5">
             <button className="bg-gradient-to-t from-gray-700 to-black text-white p-2 py-4 2xl:p-6 rounded-full shadow-lg hover:bg-white hover:text-black">
@@ -58,7 +78,8 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="rounded-full md:rounded-xl flex flex-col-reverse gap-5 lg:flex-col-reverse items-center justify-between max-w-xs xs:w-[95%] sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-4xl mt-5 shadow-2xl p-5 xl:p-15 bg-gray-300 md:mt-30">
+      {/* Skills Section */}
+      <div className="animate-fade rounded-full md:rounded-xl flex flex-col-reverse gap-5 lg:flex-col-reverse items-center justify-between max-w-xs xs:w-[95%] sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-4xl mt-5 shadow-2xl p-5 xl:p-15 bg-linear-to-b from-gray-900 to-gray-300 md:mt-30">
         <Skill />
         <div>
           <Image
@@ -71,6 +92,7 @@ export default async function Home() {
         </div>
       </div>
 
+      {/* About Section */}
       <div className="md:text-left flex flex-col justify-center items-center gap-5 max-w-xs xs:w-[95%] sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-4xl">
         <h1 className="text-xl sm:text-xl md:text-4xl font-bold text-gray-900 flex gap-5">
           About Me <FcAbout />
@@ -85,7 +107,6 @@ export default async function Home() {
           </button>
         </div>
       </div>
-
     </main>
   );
 }
