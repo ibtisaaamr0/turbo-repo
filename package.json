@@ -32,5 +32,10 @@
     "react-icons": "^5.5.0",
     "sharp": "^0.34.3",
     "ws": "^8.18.3"
-  }
+  },
+  "resolutions": {
+  "lightningcss": "^1.24.0",
+  "sharp": "^0.33.5"
+}
+
 }
