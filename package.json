@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
-    "postinstall": "npx --yes --package=lightningcss lightningcss --version",
+    "postinstall": "npm rebuild lightningcss sharp --verbose || true",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
